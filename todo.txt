@@ -1,0 +1,8 @@
+1. Add Middleware - request count (1 day)
+2. Mongo Atlas pricing
+    - Concurrent connection pricing
+    - Read, write, transaction pricing
+3. Write query count (check long running query as well)
+4. Dashboard access
+5. Data storage size
+               │

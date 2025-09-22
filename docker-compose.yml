@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+  web:
+    image: durbinlms
+    container_name: durbinlms
+    restart: always
+    env_file: dev.env
+    ports:
+        - 3141:3141
+    volumes:
+        - .:/home/durbinlms/app
+        - /home/durbinlms/app/node_modules
+    depends_on:
+        - redis
+  worker: 
+    image: durbinlms
+    container_name: durbinlms-worker
+    restart: always
+    env_file: dev.env
+    volumes:
+      - .:/home/durbinlms/app
+      - /home/durbinlms/app/node_modules
+    command: node server/service/worker.js
+    depends_on:
+        - redis
+        
+  redis:
+    image: redis
+    container_name: durbinlms_redis
+    volumes:
+      - redis_data:/data
+    command: redis-server --requirepass password
+    ports:
+      - '6379:6379'
+volumes:
+  redis_data:

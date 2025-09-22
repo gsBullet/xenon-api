@@ -1,0 +1,3053 @@
+{
+	"info": {
+		"_postman_id": "1e11442a-0ade-458d-93da-9c58873bd887",
+		"name": "RetinaLMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "is logged in",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/auth/is-logged-in",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"auth",
+								"is-logged-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/auth/logout",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "add admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"8801797459061\",\n    \"firstName\": \"Supto\",\n    \"lastName\": \"Maruf\",\n    \"password\": \"password123\",\n    \"roles\": [\"moderator\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/admin/add",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admins",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/admin/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldPassword\": \"iamsadat642\",\n    \"newPassword\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/admin/reset-passowrd",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"reset-passowrd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update admin",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Md. \"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/admin/update/5fc2205d6fcf3b8571ecfa72",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"update",
+								"5fc2205d6fcf3b8571ecfa72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/admin/delete/8801797459061",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"delete",
+								"8801797459061"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"handle\": \"8801710027639\",\n    \"password\": \"password\",\n    \"viaEmail\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/admin/otp",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"hash\": \"0cef6bdf6a891f9f892542d1fd08cda0b22ce831d6799cd9bdb79f76b804aae6.1613824693377\",\n  \"handle\": \"8801710027639\",\n  \"otp\": \"647200\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/admin/verify-login",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"verify-login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/course?session=2020",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"course"
+							],
+							"query": [
+								{
+									"key": "session",
+									"value": "2020"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"description\": \"asdas dasdasb as dkasndas dasdl jkas doas\",\n    \"image\": \"http://gosda.ss\",\n    \"session\": \"2020\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/course",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/course/5fa8da8b4623445842f23b98",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"course",
+								"5fa8da8b4623445842f23b98"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subject completion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/course/5fc73bb8dc5d7ab2c1d96cce/subject-completion",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"course",
+								"5fc73bb8dc5d7ab2c1d96cce",
+								"subject-completion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course by courseId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/course/5fa8da8b4623445842f23b98",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"course",
+								"5fa8da8b4623445842f23b98"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Branch",
+			"item": [
+				{
+					"name": "branch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Uttara\",\n    \"division\": \"Dhaka\",\n    \"address\": \"Farmgate\",\n    \"phone\": \"8801710585567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/branch",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"branch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "branches",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Uttara\",\n    \"code\": \"5\",\n    \"phone\": \"8801710585567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/branch",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"branch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "branch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Uttara\",\n    \"code\": \"1\",\n    \"phone\": \"8801710585567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/branch/5fa8f042424dbb18b8f96b95",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"branch",
+								"5fa8f042424dbb18b8f96b95"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/branch/5fe06b8f8c0cc31e181e82f7",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"branch",
+								"5fe06b8f8c0cc31e181e82f7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Add student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sadat Sayem\",\n  \"session\": \"2020\",\n  \"sid\": \"202015211\",\n  \"username\": \"8801710027639\",\n  \"contact\": \"8801710027637\",\n  \"HSCGPA\": 4.60,\n  \"SSCGPA\": 5.00,\n  \"firstTime\": true,\n  \"courses\": [\n    \"5fb15ee4013dbdbaacd3ff5a\",\n    \"5fb20ba2f4398274da611cc2\"\n  ],\n  \"branch\": \"5fb15f00013dbdbaacd3ff5b\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/student/add-student",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"add-student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course (studentId)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5fb15f4f013dbdbaacd3ff5c\",\n    \"courses\": [\"5fb15f00013dbdbaacd3ff5b\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/student/add-course",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"add-course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove course",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"5fa99ff96d16d00d14a9d425\",\n    \"courses\": [\"5fa9a67cef446f23242a675c\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/student/remove-course",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"remove-course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"status\": \"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/student/status/5fa99ff96d16d00d14a9d425",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"status",
+								"5fa99ff96d16d00d14a9d425"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/student?session=2020&username=8801710027639",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student"
+							],
+							"query": [
+								{
+									"key": "branch",
+									"value": "5fca200ba06b17fcb9b66786",
+									"disabled": true
+								},
+								{
+									"key": "lastId",
+									"value": "5fc8755ea65dfe2b272c109c",
+									"disabled": true
+								},
+								{
+									"key": "session",
+									"value": "2020"
+								},
+								{
+									"key": "name",
+									"value": "imran",
+									"disabled": true
+								},
+								{
+									"key": "courseId",
+									"value": "5fb9f7d5adcf48bc87512952",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2020-12-01T06:03:26.712Z",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2020-12-19T06:03:26.712Z",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "8801710027639"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "otp",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/student/otp/8801710027639",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"otp",
+								"8801710027639"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "set password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phone\": \"8801521105226\",\n    \"password\": \"password1\",\n    \"otp\": \"750121\",\n    \"hash\": \"56408e4022c376e075faa7ab0b11a341757a9ef5eee0ef6827da44678fdcadbb.1607433969919\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/student/set-password?forgotPassword=true",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"set-password"
+							],
+							"query": [
+								{
+									"key": "forgotPassword",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"8801777383495\",\n    \"password\": \"Zubair07\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/student/login",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/student/profile",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Maruf Supto\",\n    \"HSCGPA\": \"4.7\",\n    \"SSCGPA\": \"5\",\n    \"firstTime\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/student/profile",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile by _id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/student/profile/5fb9f7f7adcf48bc87512954",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"profile",
+								"5fb9f7f7adcf48bc87512954"
+							]
+						},
+						"description": "Only authorized to admin and moderator"
+					},
+					"response": []
+				},
+				{
+					"name": "profile by _id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Abdullah Al Maruf Supto\",\n    \"HSCGPA\": \"5\",\n    \"SSCGPA\": \"5\",\n    \"firstTime\": true,\n    \"session\": \"2021\",\n    \"sid\": \"1521105226\",\n    \"branch\": \"5fa8f042424dbb18b8f96b95\",\n    \"contact\": \"8801777966321\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/student/profile/5faf8d4ae5d43a62f5bb89f7",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"profile",
+								"5faf8d4ae5d43a62f5bb89f7"
+							]
+						},
+						"description": "Only authorized to admin and moderator"
+					},
+					"response": []
+				},
+				{
+					"name": "delete students",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"students\": [\"8801710027639\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/student/delete",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/student/forgot-password/8801521105226",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"forgot-password",
+								"8801521105226"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status multiple",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"active\",\n  \"students\": [\"8801521105226\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/student/status",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "export",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/student/export?session=2020",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"export"
+							],
+							"query": [
+								{
+									"key": "session",
+									"value": "2020"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "export by groupId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/student/export/group/5fb0c64e485de5e8033ae81c",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"student",
+								"export",
+								"group",
+								"5fb0c64e485de5e8033ae81c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Group",
+			"item": [
+				{
+					"name": "groups by session and courseId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/group/2020/5fb20ba2f4398274da611cc2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"group",
+								"2020",
+								"5fb20ba2f4398274da611cc2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all students by groupId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/group/all/students/5fba0900929f4617fceb20f9/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"group",
+								"all",
+								"students",
+								"5fba0900929f4617fceb20f9",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by groupId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/group/5fed6ce3bedf62cb8b658263",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"group",
+								"5fed6ce3bedf62cb8b658263"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Group A\",\n    \"session\": \"2020\",\n    \"courseId\": \"5fb20ba2f4398274da611cc2\",\n    \"image\": \"adsads.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/group",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove student by groupId and studentId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usernames\":[\"8801710027630\", \"8801710027638\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/group/remove-student/5fb0dfe62c9f695496d12a35/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"group",
+								"remove-student",
+								"5fb0dfe62c9f695496d12a35",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update exam by examId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"unpublished\",\n  \"addGPA\": true,\n  \"duration\": 500,\n  \"startsAt\": \"2020-11-25T07:02:33.014Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/group/5fb9f845adcf48bc87512955/update/5fbcf55e4f94f45590aa3b08",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"group",
+								"5fb9f845adcf48bc87512955",
+								"update",
+								"5fbcf55e4f94f45590aa3b08"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add students to group",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usernames\": [\n        \"8801710027630\",\n        \"8801521105226\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/group/5fba0900929f4617fceb20f9/add-student",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"group",
+								"5fba0900929f4617fceb20f9",
+								"add-student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "access status change by groupId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/group/5fed6ce3bedf62cb8b658263/access-status?status=false&questionSolveId=601e6caeac627bc7df843754",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"group",
+								"5fed6ce3bedf62cb8b658263",
+								"access-status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "false"
+								},
+								{
+									"key": "chapterId",
+									"value": "5fb240431ae3b2ca2135f64b",
+									"disabled": true
+								},
+								{
+									"key": "lectureId",
+									"value": "5fb772e2f98d4053560cd597",
+									"disabled": true
+								},
+								{
+									"key": "questionSolveId",
+									"value": "601e6caeac627bc7df843754"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add exam to group",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"startsAt\": \"2020-11-20T07:02:33.014Z\",\n  \"duration\": 90,\n  \"examId\": \"5fc397a030dac834590b3770\",\n  \"addGPA\": false,\n  \"multipleTimesSubmission\": false,\n  \"type\": \"live\",\n  \"endsAt\": \"2020-11-20T07:02:33.014Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/group/5fba0900929f4617fceb20f9/add-exam",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"group",
+								"5fba0900929f4617fceb20f9",
+								"add-exam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove exam from group by id and examId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/group/5fb76a5ed3d13f46089a2b79/remove-exam/5fb6ced7a63606f49159d4ff",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"group",
+								"5fb76a5ed3d13f46089a2b79",
+								"remove-exam",
+								"5fb6ced7a63606f49159d4ff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subject",
+			"item": [
+				{
+					"name": "subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Math\",\n  \"image\": \"ggdfsa.png\",\n  \"courseId\": \"5fb20ba2f4398274da611cc2\",\n  \"description\": \"sadasdas dasdhbvasdas djl asdas ljb as das\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/subject",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"subject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subjects by courseId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/subject/by-course-id/5fb20ba2f4398274da611cc2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"subject",
+								"by-course-id",
+								"5fb20ba2f4398274da611cc2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lecrure/chapter/questionSolve order change by subjectId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"lectures\": [\"5fb174efd022522ca8d28b4a\"],\n  \"chapters\": [\"5fb174efd022522ca8d28b41\"],\n  \"questionSolves\": [\"5fb174efd022522ca8d28b41\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/subject/5fb174efd022522ca8d28b48/reorder/lecture-chapter",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"subject",
+								"5fb174efd022522ca8d28b48",
+								"reorder",
+								"lecture-chapter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/subject/5fc73bb8dc5d7ab2c1d96cce",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"subject",
+								"5fc73bb8dc5d7ab2c1d96cce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/subject/5fc73bb8dc5d7ab2c1d96cce",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"subject",
+								"5fc73bb8dc5d7ab2c1d96cce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Math\",\n  \"image\": \"ggdfsa.png\",\n  \"description\": \"sadasdas dasdhbvasdas djl asdas ljb as das\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/subject/5fc73bb8dc5d7ab2c1d96cce",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"subject",
+								"5fc73bb8dc5d7ab2c1d96cce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "start subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": \"5fc73bb8dc5d7ab2c1d96cce\",\n  \"subjectId\": \"5fc73bb8dc5d7ab2c1d96cce\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/subject/start/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"subject",
+								"start",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lecture",
+			"item": [
+				{
+					"name": "lecture",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Math II\",\n  \"subjectId\": \"5fb2296ad9ed05b1340524d2\",\n  \"description\": \"dsdjhkbajgvsio\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/lecture",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"lecture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update content order by lectureId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"videoContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ],\n  \"fileContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/lecture/5fb772e2f98d4053560cd597/content-order",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"lecture",
+								"5fb772e2f98d4053560cd597",
+								"content-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lecture by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/lecture/5fb9f935adcf48bc87512957",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"lecture",
+								"5fb9f935adcf48bc87512957"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lectures by subjectId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/lecture/by-subject-id/5fb2296ad9ed05b1340524d2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"lecture",
+								"by-subject-id",
+								"5fb2296ad9ed05b1340524d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add access to group by groupId and lectureId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/lecture/5fb9f845adcf48bc87512955/add-access/5fbe4521b61a6f62e402bfa4",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"lecture",
+								"5fb9f845adcf48bc87512955",
+								"add-access",
+								"5fbe4521b61a6f62e402bfa4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Math II\",\n  \"subjectId\": \"5fb2296ad9ed05b1340524d2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/lecture/5fb202b5c188b067a9c1baf0/update",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"lecture",
+								"5fb202b5c188b067a9c1baf0",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/lecture/5fb202b5c188b067a9c1baf0/delete",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"lecture",
+								"5fb202b5c188b067a9c1baf0",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove content",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"videoContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ],\n  \"fileContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/lecture/5fb202b5c188b067a9c1baf0/remove-content",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"lecture",
+								"5fb202b5c188b067a9c1baf0",
+								"remove-content"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chapter",
+			"item": [
+				{
+					"name": "chapter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Math\",\n  \"subjectId\": \"5fb2296ad9ed05b1340524d2\",\n  \"description\": \"dsdjhkbajgvsio\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/chapter",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"chapter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "chapter by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/chapter/5fddb83dc9a90bf5fab38478",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"chapter",
+								"5fddb83dc9a90bf5fab38478"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update content order by chapterId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"videoContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ],\n  \"fileContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/chapter/5fb240431ae3b2ca2135f64b/content-order",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"chapter",
+								"5fb240431ae3b2ca2135f64b",
+								"content-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "chapter by subjectId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/chapter/by-subject-id/5fb2296ad9ed05b1340524d2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"chapter",
+								"by-subject-id",
+								"5fb2296ad9ed05b1340524d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add access to group by groupId and chapterId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/chapter/5fba0900929f4617fceb20f9/add-access/5fbe41251a425a5a64e94a4f",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"chapter",
+								"5fba0900929f4617fceb20f9",
+								"add-access",
+								"5fbe41251a425a5a64e94a4f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Math\",\n  \"subjectId\": \"5fb2296ad9ed05b1340524d2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/chapter/5fbe41251a425a5a64e94a4f/update",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"chapter",
+								"5fbe41251a425a5a64e94a4f",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Math\",\n  \"subjectId\": \"5fb2296ad9ed05b1340524d2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/chapter/5fbe41251a425a5a64e94a4f/delete",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"chapter",
+								"5fbe41251a425a5a64e94a4f",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove content",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"videoContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ],\n  \"fileContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/chapter/5fb202b5c188b067a9c1baf0/remove-content",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"chapter",
+								"5fb202b5c188b067a9c1baf0",
+								"remove-content"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Question solve",
+			"item": [
+				{
+					"name": "add access to group by groupId and questionSolveId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/question-solve/5fba0900929f4617fceb20f9/add-access/5fbe41251a425a5a64e94a4f",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question-solve",
+								"5fba0900929f4617fceb20f9",
+								"add-access",
+								"5fbe41251a425a5a64e94a4f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "question solve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Math 2\",\n  \"subjectId\": \"5fb2296ad9ed05b1340524d2\",\n  \"description\": \"dsdjhkbajgvsio\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/question-solve",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question-solve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "question-solve by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/question-solve/601a97d244b66d2d18ddd1ae",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question-solve",
+								"601a97d244b66d2d18ddd1ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "question-solve by subjectId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/question-solve/by-subject-id/5fb2296ad9ed05b1340524d2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question-solve",
+								"by-subject-id",
+								"5fb2296ad9ed05b1340524d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update content order by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"videoContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ],\n  \"fileContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/question-solve/601a97d244b66d2d18ddd1ae/content-order",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question-solve",
+								"601a97d244b66d2d18ddd1ae",
+								"content-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Math\",\n  \"subjectId\": \"5fb2296ad9ed05b1340524d2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/question-solve/601a97d244b66d2d18ddd1ae/update",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question-solve",
+								"601a97d244b66d2d18ddd1ae",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove content",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"videoContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ],\n  \"fileContents\": [\n    \"5fb78d0e70af808169b0fd03\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/question-solve/601a97d244b66d2d18ddd1ae/remove-content",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question-solve",
+								"601a97d244b66d2d18ddd1ae",
+								"remove-content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Math\",\n  \"subjectId\": \"5fb2296ad9ed05b1340524d2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/question-solve/601a97d244b66d2d18ddd1ae/delete",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question-solve",
+								"601a97d244b66d2d18ddd1ae",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contents",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Lay Lay\",\n  \"type\": \"video\",\n  \"URL\": \"https://www.youtube.com/watch?v=5wyW-w1ikK0\",\n  \"chapters\": [\"5fc7d73357e14a69fecdecdb\"],\n  \"questionSolves\": [\"5fc7d73357e14a69fecdecda\"],\n  \"courses\": [\"5fb20ba2f4398274da611cc2\"],\n  \"lectures\": [\"5fbe4521b61a6f62e402bfa4\"],\n  \"subjects\": [\"5fb2296ad9ed05b1340524d2\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/content",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Fifth\",\n  \"type\": \"video\",\n  \"key\": \"asdaw75a\",\n  \"URL\": \"aousga.aw\",\n  \"chapters\": [\"5fb240431ae3b2ca2135f64b\"],\n  \"courses\": [\"5fb20ba2f4398274da611cc2\"],\n  \"lectures\": [\"5fb202b5c188b067a9c1baf0\"],\n  \"subjects\": [\"5fb2296ad9ed05b1340524d2\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/content/search?lectureId=5fb9f935adcf48bc87512957&subjectId=5fb9f901adcf48bc87512956",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"content",
+								"search"
+							],
+							"query": [
+								{
+									"key": "lectureId",
+									"value": "5fb9f935adcf48bc87512957"
+								},
+								{
+									"key": "courseId",
+									"value": "5fb20ba2f4398274da611cc2",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "f",
+									"disabled": true
+								},
+								{
+									"key": "subjectId",
+									"value": "5fb9f901adcf48bc87512956"
+								},
+								{
+									"key": "chapterId",
+									"value": "5fb240431ae3b2ca2135f64b",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signed key request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/content/signed-request?mimeType=image/png",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"content",
+								"signed-request"
+							],
+							"query": [
+								{
+									"key": "fileName",
+									"value": "hello.jpg",
+									"disabled": true
+								},
+								{
+									"key": "mimeType",
+									"value": "image/png"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"One 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/content/update/5fc3da3c4305d56ae0f46cec",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"content",
+								"update",
+								"5fc3da3c4305d56ae0f46cec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/content/delete/5fc8944f5a643c8d6ca76378",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"content",
+								"delete",
+								"5fc8944f5a643c8d6ca76378"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add access  to lecture/chapter/question solve",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"chapterId\" : \"5fbb9a7d5269b25e3fa3ba5a\",\n  \"lectureId\" : \"5fbb9a7d5269b25e3fa3b852\",\n  \"questionSolveId\": \"5fbb9a7d5269b25e3fa3b852\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/content/add-access/601b90fb17c441992486a509",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"content",
+								"add-access",
+								"601b90fb17c441992486a509"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mark as complete",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": \"5fc73bb8dc5d7ab2c1d96cce\",\n  \"subjectId\": \"5fc73bb8dc5d7ab2c1d96cce\",\n  \"type\": \"video\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/content/mark-as-complete/5fc3da3c4305d56ae0f46cec",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"content",
+								"mark-as-complete",
+								"5fc3da3c4305d56ae0f46cec"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Question",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"questions\": [\n    {\n      \"title\": \"X is 10\",\n      \"type\": \"MCQ\",\n      \"options\": [\"a\", \"b\", \"c\"],\n      \"answer\": [\"a\"],\n      \"sampleAnswer\": \"Optional field\",\n      \"status\": \"pending\",\n      \"subjectId\": \"5faf8d4ae5d43a62f5bb89f7\",\n      \"courseId\": \"5faf8d4ae5d43a62f5bb89f7\",\n      \"lectureId\": \"5faf8d4ae5d43a62f5bb89f7\",\n      \"chapterId\": \"5faf8d4ae5d43a62f5bb89f7\",\n      \"URL\": [\"optional field\"],\n      \"image\": [\"optional field\"],\n      \"file\": [\"optional field\"],\n      \"notes\": \"Hudai\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/question/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question",
+								""
+							]
+						},
+						"description": "Optional field: subjectId, lectureId, chapterId, sampleAnswer, status, URL, image, file, sampleAnswer, answer\n\n\ntype:{\n      SHORT_ANS: 'shortAns',\n      PARAGRAPH: 'paragraph',\n      MCQ: 'MCQ',\n      CHECKBOX: 'checkbox',\n}"
+					},
+					"response": []
+				},
+				{
+					"name": "question by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/question/by-id/5fc0c6365e213188dc93366c",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question",
+								"by-id",
+								"5fc0c6365e213188dc93366c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/question/search?courseId=5fc49bc869c25d2508fa45d7&title=new%20question",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question",
+								"search"
+							],
+							"query": [
+								{
+									"key": "lectureId",
+									"value": "5faf8d4ae5d43a62f5bb89f7",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "X is a",
+									"disabled": true
+								},
+								{
+									"key": "chapterId",
+									"value": "5faf8d4ae5d43a62f5bb89f7",
+									"disabled": true
+								},
+								{
+									"key": "courseId",
+									"value": "5fc49bc869c25d2508fa45d7"
+								},
+								{
+									"key": "title",
+									"value": "new%20question"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update question by Id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"options\": [\n    \"a\",\n    \"b\",\n    \"c\",\n    \"d\"\n  ],\n  \"title\": \"X is a 96\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/question/update/5fb53b2f2e2ee99d786c07d3",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question",
+								"update",
+								"5fb53b2f2e2ee99d786c07d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete question by Id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/question/delete/5fb53b2f2e2ee99d786c07d3",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question",
+								"delete",
+								"5fb53b2f2e2ee99d786c07d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "export csv",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/question/export?courseId=5fae37ab092642ce6e3a431b",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"question",
+								"export"
+							],
+							"query": [
+								{
+									"key": "courseId",
+									"value": "5fae37ab092642ce6e3a431b"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exam",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Test Exam 3\",\n  \"courseId\": \"5fb9f7d5adcf48bc87512952\",\n  \"isPracticeExam\": false,\n  \"passMark\": 20,\n  \"totalMarks\": 50,\n  \"negativeMarkPerQuestion\": 0.25,\n  \"globalPoint\": 5,\n  \"questions\": [\n    {\n      \"question\": \"5fb9fa4cadcf48bc87512959\",\n      \"point\": 50\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/exam",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by examId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/id/5fd1b485eec8a664b6c66d54",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"id",
+								"5fd1b485eec8a664b6c66d54"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove question by examId and questionId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/remove-question/5fb6615b6129bc91660496e4/5fb53b242e2ee99d786c07d2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"remove-question",
+								"5fb6615b6129bc91660496e4",
+								"5fb53b242e2ee99d786c07d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add question by examId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"questions\": [\n    {\n      \"question\": \"5fb53b242e2ee99d786c07d2\",\n      \"point\": \"5\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/exam/add-question/5fb6615b6129bc91660496e4",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"add-question",
+								"5fb6615b6129bc91660496e4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Exam update\",\n  \"isPracticeExam\": true,\n  \"courseId\": \"5faf8d4ae5d43a62f5bb89f7\",\n  \"passMark\": 10,\n  \"totalMarks\": 50,\n  \"negativeMarkPerQuestion\": 0.5,\n  \"multipleTimesSubmission\": true,\n  \"status\": \"pending\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/exam/update/5fb6615b6129bc91660496e4",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"update",
+								"5fb6615b6129bc91660496e4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/delete/5fb6615b6129bc91660496e4",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"delete",
+								"5fb6615b6129bc91660496e4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "start exam",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/start/5fd1b485eec8a664b6c66d54/group-id/5fd0e08dae595163a7cda9ca",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"start",
+								"5fd1b485eec8a664b6c66d54",
+								"group-id",
+								"5fd0e08dae595163a7cda9ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all exam by courseId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/course-id/5fc49bc869c25d2508fa45d7?lastId=5fd1b1f2eec8a664b6c66d45",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"course-id",
+								"5fc49bc869c25d2508fa45d7"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2020-12-20T06:03:26.712Z",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2020-12-21T06:03:26.712Z",
+									"disabled": true
+								},
+								{
+									"key": "lastId",
+									"value": "5fd1b1f2eec8a664b6c66d45"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get result by examId for student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/result/602a09383aeb40b8dcc1e744/student/by-groupId/5fed6ce3bedf62cb8b658263",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"result",
+								"602a09383aeb40b8dcc1e744",
+								"student",
+								"by-groupId",
+								"5fed6ce3bedf62cb8b658263"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get result by examId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/result/5fb9fbcaadcf48bc8751295b",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"result",
+								"5fb9fbcaadcf48bc8751295b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add answer",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"questionId\": \"5fcced34336aadf5e2e44708\",\n  \"answer\": [\n    \"Ctr+C \"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/exam/add-answer/5fd0e116ae595163a7cda9cd/group/5fd0e08dae595163a7cda9ca?offline=true",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"add-answer",
+								"5fd0e116ae595163a7cda9cd",
+								"group",
+								"5fd0e08dae595163a7cda9ca"
+							],
+							"query": [
+								{
+									"key": "offline",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "finish exam",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/submit/5fec6262e9097afa8c1c535a/group/5fd1a94beec8a664b6c66d44",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"submit",
+								"5fec6262e9097afa8c1c535a",
+								"group",
+								"5fd1a94beec8a664b6c66d44"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mark answer",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"questionId\": \"5fb9fa4cadcf48bc87512959\",\n  \"marks\": 10,\n  \"studentId\": \"5fb9fa4cadcf48ba87512959\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/exam/mark-answer/5fb9fbcaadcf48bc8751295b/group/5fb9fbcaadcf48bc8751295b",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"mark-answer",
+								"5fb9fbcaadcf48bc8751295b",
+								"group",
+								"5fb9fbcaadcf48bc8751295b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "exam result publish",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/publish/5fb9fbcaadcf48bc8751295b/student/5fb9f7f7adcf48bc87512954/group/5fb9fbcaadcf48bc8751295b",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"publish",
+								"5fb9fbcaadcf48bc8751295b",
+								"student",
+								"5fb9f7f7adcf48bc87512954",
+								"group",
+								"5fb9fbcaadcf48bc8751295b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retake exam",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/retake/5fd1b485eec8a664b6c66d54/student-id/5fc72bc685d8c5465bed4c61",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"retake",
+								"5fd1b485eec8a664b6c66d54",
+								"student-id",
+								"5fc72bc685d8c5465bed4c61"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "merit list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/aggregate?exam=5fed7f08bedf62cb8b65832e&exam=6006619536a771c381a8b6e7&group=5fd0e08dae595163a7cda9ca",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"aggregate"
+							],
+							"query": [
+								{
+									"key": "exam",
+									"value": "5fed7f08bedf62cb8b65832e"
+								},
+								{
+									"key": "exam",
+									"value": "6006619536a771c381a8b6e7"
+								},
+								{
+									"key": "group",
+									"value": "5fd0e08dae595163a7cda9ca"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publish all",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"students\": [\"5fb0a6db485de5e8033ae81a\"],\n  \"sendSms\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/exam/publish-all/6029fb757d5a9fa5fd04c76a/group/5fed6ce3bedf62cb8b658263",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"publish-all",
+								"6029fb757d5a9fa5fd04c76a",
+								"group",
+								"5fed6ce3bedf62cb8b658263"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my scoreboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/scoreboard",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"scoreboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "scoreboard by studentId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/scoreboard/5fcb890331e047d7831056f0",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"scoreboard",
+								"5fcb890331e047d7831056f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "export exam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/exam/export/5fd70f681169c1ea10916aba/",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"exam",
+								"export",
+								"5fd70f681169c1ea10916aba",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "create notification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"message\": \"Dear Xenon Academy user, your verification code is: 088430\",\n  \"type\": \"notice\",\n  \"info\": {\n    \"id\": \"5fbcf84a63f8625bf74e4613\",\n    \"action\": \"created\",\n    \"on\": \"group\"\n  },\n  \"students\": [\n    \"8801521105226\"\n  ],\n  \"sms\": [\n    \"8801710027639\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/notification",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/notification/id/6003c20779f5faf7689f93f8",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notification",
+								"id",
+								"6003c20779f5faf7689f93f8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "seen",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/notification/seen/5fbcf83363f8625bf74e4610",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notification",
+								"seen",
+								"5fbcf83363f8625bf74e4610"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete notification from student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/notification/id/6003bde779f5faf7689f93e9",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"notification",
+								"id",
+								"6003bde779f5faf7689f93e9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/file/all",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"file",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Analitycs",
+			"item": [
+				{
+					"name": "active user count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/analitycs/active-users",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"analitycs",
+								"active-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "branch & admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/analitycs/branch-and-admin",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"analitycs",
+								"branch-and-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "group exam courseId and session",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/analitycs/group/5fec3f4f7b8c9199d1902cae/exam/2020",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"analitycs",
+								"group",
+								"5fec3f4f7b8c9199d1902cae",
+								"exam",
+								"2020"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/analitycs/dashboard/2020",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"analitycs",
+								"dashboard",
+								"2020"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "sms gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/gateway/sms",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"gateway",
+								"sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sms gateway",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"gateway\": \"infobip\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/gateway/sms",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"gateway",
+								"sms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
