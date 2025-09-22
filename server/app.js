@@ -92,7 +92,7 @@ const setupServer = async () => {
   }
 };
 
-app.get("/", (req, res) => res.status(200).send("API is running with Xenon LMS Server ! AWS Version 2, EC2 Instance ID: i-0a1b2c3d4e5f6g7h8"));
+app.get("/", (req, res) => res.status(200).json("API is running with Xenon LMS Server ! AWS Version 2, EC2 Instance ID: i-0a1b2c3d4e5f6g7h8"));
 
 setupServer()
   .then(() => {
