@@ -15,7 +15,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y openssh-client
 
     - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.10.0  # Use latest version
+      uses: webfactory/ssh-agent@v0.9.0  # Use latest version
       with:
         ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
