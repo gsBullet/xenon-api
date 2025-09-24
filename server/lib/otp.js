@@ -7,7 +7,7 @@ const createNewOTP = (phone) => {
   let otp = otpGenerator.generate(config.otp.length, {
     alphabets: false, upperCase: false, specialChars: false,
   });
- 
+
   otp = Math.floor(Math.random() * 900000) + 100000;
   if (process.env.FIXED_OTP === 'true') {
     otp = 123321;

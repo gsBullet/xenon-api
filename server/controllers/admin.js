@@ -9,10 +9,10 @@ const helper = require("../lib/helper");
 const constants = require("../constants");
 const otpLib = require("../lib/otp");
 const notificationSender = require("../lib/notification");
-const ses = require("../lib/ses/email");
-const { template } = require("../templates/loginVerification");
+// const ses = require("../lib/ses/email");
+// const { template } = require("../templates/loginVerification");
 const config = require("../config");
-const { getAll } = require("../data/admin");
+// const { getAll } = require("../data/admin");
 
 const { platformName } = config.server;
 
@@ -64,7 +64,7 @@ module.exports = {
       if (!viaEmail) {
         notificationSender.sendSms(
           admin.username,
-          `Dear ${platformName} Academy user, your verification code is: ${otp}`
+          `Dear ${platformName} Academy user, your verification code is: ${otp}`,
         );
       } else {
         if (!admin.email) {
@@ -110,14 +110,15 @@ module.exports = {
           `,
         };
 
-        transporter.sendMail(mailOptions, function (error, info) {
+        // eslint-disable-next-line no-undef
+        transporter.sendMail(mailOptions, (sendMailCallback = (error, info) => {
           if (error) {
             console.log(error);
           } else {
-            console.log("Email sent to: " + admin.email);
-            console.log("Email sent: " + info.response);
+            console.log(`Email sent to: ${admin.email}`);
+            console.log(`Email sent: ${info.response}`);
           }
-        });
+        }));
       }
 
       res.ok(resp);
@@ -218,7 +219,7 @@ module.exports = {
       }
       const expTime = moment(new Date(admin.codeGeneratedAt)).add(
         30,
-        "minutes"
+        "minutes",
       );
       if (Date.now() > new Date(expTime).valueOf()) {
         res.forbidden({ title: "Verification code timeout" });
@@ -244,7 +245,7 @@ module.exports = {
       }
       const isMatched = await helper.compareHashPassword(
         oldPassword,
-        admin.password
+        admin.password,
       );
       if (!isMatched) {
         res.forbidden({ title: "Incorrect password" });
