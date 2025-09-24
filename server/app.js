@@ -91,8 +91,9 @@ const setupServer = async () => {
     return Promise.reject(err);
   }
 };
+const message = "API is running with Xenon LMS Server ! Happy Learning. we have added new features. Check once it out. ";
 
-app.get("/", (req, res) => res.status(200).json("API is running with Xenon LMS Server ! Happy Learning."));
+app.get("/", (req, res) => res.status(200).json(message));
 
 setupServer()
   .then(() => {
