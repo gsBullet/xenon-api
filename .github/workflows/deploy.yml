@@ -6,25 +6,15 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04  # Pin to a specific runner for consistency
+    runs-on: ubuntu-22.04
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4  # Use latest checkout version
-
-    - name: Install SSH dependencies
-      run: sudo apt-get update && sudo apt-get install -y openssh-client
+      uses: actions/checkout@v4
 
     - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0  # Use latest version
+      uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
-
-    - name: Debug SSH Key
-      if: failure()  # Run only if previous steps fail
-      run: |
-        echo "${{ secrets.EC2_SSH_KEY }}" > key.txt
-        head -n 5 key.txt
-        ssh-keygen -y -P "" -f key.txt || echo "Failed to read key"
 
     - name: Add EC2 to known_hosts
       run: |
@@ -32,17 +22,26 @@ jobs:
         ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
         chmod 600 ~/.ssh/known_hosts
 
-    - name: Test SSH connection
+    - name: Test SSH connection with verbose output
       run: |
-        ssh -o ConnectTimeout=10 ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} "echo 'SSH connection successful'"
+        ssh -v -o ConnectTimeout=10 -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} "echo 'SSH connection successful'"
 
     - name: Deploy to EC2
+      if: success()
       run: |
-        ssh -o ConnectTimeout=10 ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
-          cd ~/var/www/nodeapp/xenon-api
+        ssh -o ConnectTimeout=30 -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
+          set -e
+          cd /var/www/nodeapp/xenon-api || { echo "Directory not found"; exit 1; }
           git fetch origin
           git reset --hard origin/main
           npm ci --omit=dev
-          pm2 restart my-app -- run dev --watch || pm2 start npm --name my-app -- run dev --watch
+          
+          # Check if PM2 process exists before restarting
+          if pm2 list | grep -q "my-app"; then
+            pm2 restart my-app -- run dev --watch
+          else
+            pm2 start npm --name my-app -- run dev --watch
+          fi
+          
           pm2 save
         '
