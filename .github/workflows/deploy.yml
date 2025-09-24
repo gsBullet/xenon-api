@@ -34,13 +34,14 @@ jobs:
           cd /var/www/nodeapp/xenon-api || { echo "Directory not found"; exit 1; }
           git fetch origin
           git reset --hard origin/main
+          npm install
           npm ci --omit=dev
           
           # Check if PM2 process exists before restarting
           if pm2 list | grep -q "my-app"; then
-            pm2 restart my-app -- run dev --watch
+            pm2 restart my-app -- run start --watch
           else
-            pm2 start npm --name my-app -- run dev --watch
+            pm2 start npm --name my-app -- run start --watch
           fi
           
           pm2 save
