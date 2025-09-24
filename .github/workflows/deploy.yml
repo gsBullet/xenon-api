@@ -44,6 +44,6 @@ jobs:
           git fetch origin
           git reset --hard origin/main
           npm ci --omit=dev
-          pm2 restart my-app || pm2 start server.js --name my-app
+          pm2 restart my-app -- run dev --watch || pm2 start npm --name my-app -- run dev --watch
           pm2 save
         '
