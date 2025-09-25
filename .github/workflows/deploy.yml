@@ -31,7 +31,7 @@ jobs:
       run: |
         ssh -o ConnectTimeout=30 -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} '
           set -e
-          cd /var/www/nodeapp/xenon-api || { echo "Directory not found"; exit 1; }
+          cd /var/www/xenon-api || { echo "Directory not found"; exit 1; }
           git fetch origin
           git reset --hard origin/main
           npm install  
