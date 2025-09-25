@@ -19,6 +19,6 @@ module.exports = {
     'no-underscore-dangle': 'off',
     // Add your new rule here:
     // quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: true }],
-    quotes: 'off'
+    quotes: 'off',
   },
 };
